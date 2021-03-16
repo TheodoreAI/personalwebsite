@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="344d6af1-a806-4abe-a7bb-bc961138eb18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="344d6af1-a806-4abe-a7bb-bc961138eb18" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,11 +14,7 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="ProjectId" id="1fcB5tDd8jFGheC2ELoF9xdWyij" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -60,9 +53,7 @@
       <workItem from="1597289119305" duration="682000" />
       <workItem from="1598324851971" duration="1090000" />
       <workItem from="1600992008988" duration="783000" />
-      <workItem from="1604426617529" duration="3106000" />
-      <workItem from="1604430269713" duration="382000" />
-      <workItem from="1604430928837" duration="703000" />
+      <workItem from="1604426617529" duration="1546000" />
     </task>
     <servers />
   </component>
@@ -74,11 +65,10 @@
       <screen x="-234" y="-1080" width="1920" height="1080" />
     </state>
     <state x="464" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900/-234.-1080.1920.1080@-234.-1080.1920.1080" timestamp="1596660037088" />
-    <state x="490" y="310" key="com.intellij.ide.util.TipDialog" timestamp="1604430270101">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="490" y="303" key="com.intellij.ide.util.TipDialog" timestamp="1600992015563">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="419" y="-708" key="com.intellij.ide.util.TipDialog/0.0.1440.900/-234.-1080.1920.1080@-234.-1080.1920.1080" timestamp="1596507329126" />
-    <state x="490" y="310" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1604430270101" />
     <state x="490" y="300" key="com.intellij.ide.util.TipDialog/0.23.1440.805@0.23.1440.805" timestamp="1598324853182" />
     <state x="490" y="303" key="com.intellij.ide.util.TipDialog/0.23.1440.814@0.23.1440.814" timestamp="1600992015563" />
     <state x="391" y="-839" width="670" height="676" key="search.everywhere.popup" timestamp="1596508217318">
