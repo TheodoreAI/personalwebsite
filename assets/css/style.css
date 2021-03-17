@@ -193,6 +193,7 @@ a:hover {
     margin-bottom: 3rem;
     z-index: 2;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
 @media (min-width: 768px) {
@@ -730,10 +731,14 @@ a:hover {
 
 .about-mf .about-img {
     margin-bottom: 2rem;
+    border-radius: 10px;
+    
+    
 }
 
 .about-mf .about-img img {
     margin-left: 10px;
+    border: solid 4px black;
 }
 
 @media (min-width: 767px) {
@@ -767,6 +772,7 @@ a:hover {
     padding: 2.5rem 1.3rem;
     border-radius: 1rem;
     margin-bottom: 3rem;
+    height: 340px;
 }
 
 .service-box:hover .ico-circle {
@@ -831,10 +837,12 @@ a:hover {
 # Portfolio
 --------------------------------------------------------------*/
 .work-box {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background-color: #fff;
+    height: 320px;
+    border-radius: 10px;
 }
 
 .work-box:hover img {
@@ -844,6 +852,9 @@ a:hover {
 .work-img {
     display: block;
     overflow: hidden;
+    height: 230px;
+    border-radius: 10px;
+
 }
 
 .work-img img {
@@ -851,7 +862,7 @@ a:hover {
 }
 
 .work-content {
-    padding: 2rem 3% 1rem 4%;
+    padding: 1rem 3% 1rem 4%;
 }
 
 .work-content .w-more {
