@@ -728,6 +728,7 @@ a:hover {
 .about-mf .box-shadow-full {
     padding-top: 4rem;
     padding-bottom: 4rem;
+    border-radius: 10px;
 }
 
 .about-mf .about-img {
@@ -740,12 +741,14 @@ a:hover {
 .about-mf .about-img img {
     margin-left: 10px;
     border: solid 4px black;
+    border-radius: 10px;
 }
 
 @media (min-width: 767px) {
     .about-mf .box-pl2 {
         margin-top: 3rem;
         padding-left: 0rem;
+        border-radius: 10px;
     }
 }
 
