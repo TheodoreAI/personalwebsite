@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 function initialize(passport){
     const authenticateUser = (email, password, done)=>{
-        pool.query('SELECT * FROM admin WHERE email = $1', [email], (err, results)=>{
+        pool.query('SELECT * FROM admins WHERE email = $1', [email], (err, results)=>{
             if (err){
                 throw err;
             }
@@ -36,7 +36,7 @@ function initialize(passport){
     authenticateUser));
     passport.serializeUser((user, done)=>done(null, user.id));
     passport.deserializeUser((id, done)=>{
-        pool.query(`SELECT * from admin WHERE id = $1`, [id], (err, results)=>{
+        pool.query(`SELECT * from admins WHERE id = $1`, [id], (err, results)=>{
             if (err){
                 throw err;
             }
