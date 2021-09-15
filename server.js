@@ -111,7 +111,7 @@ app.get("/logout", (req, res) => {
         // form validations were passed
         let hashedPass = await bcrypt.hash(password, 10);
         // I want to query to the db if the user already exists
-        pool.query(`SELECT * FROM admin WHERE email = $1`, [email], (err, results)=>{
+        pool.query(`SELECT * FROM admins WHERE email = $1`, [email], (err, results)=>{
             if (err){
                 throw err;
             }
@@ -119,7 +119,7 @@ app.get("/logout", (req, res) => {
                 errors.push({message: "Email already registered!"});
                 res.render('register', {errors});
             }else{
-                pool.query(`INSERT INTO admin 
+                pool.query(`INSERT INTO admins 
                 (name, email, password)
                 VALUES($1, $2, $3)
                 RETURNING id, password`, [name, email, hashedPass], (err, results)=>{
