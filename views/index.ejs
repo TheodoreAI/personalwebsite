@@ -57,10 +57,17 @@
           <li class="nav-item">
             <a class="nav-link js-scroll" href="#contact">Collaborate</a>
           </li>
+          <% if (!loggedIn) { %>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href='/login'>Login</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href='/logout'>Logout</a>
+            </li>
+          <%}%>
+
           
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll" href='/admin/login'>Admin</a>
-          </li> -->
         </ul>
       </div>
     </div>
@@ -97,7 +104,7 @@
                     <div class="col-sm-6 col-md-5">
                       <div class="about-info">
                         <!-- <p><span class="title-s"></span> <span>Software Developer</span></p> -->
-                        <p><span class="title-s"></span> <span>Mateo Estrada</span></p>
+                        <p><span class="title-s"></span> <span>Mateo Estrada <%=rows.name%></span></p>
                         
 
                       </div>
@@ -121,6 +128,7 @@
                       </h5>
                     </div>
                     <p class="lead">
+                      <%=rows.descript%>
                       Mateo is a double major in physics and computer science at Oregon State University. He has designed, programmed, and build software systems using various technologies in the multi-disciplinary fields of physics and computer science.
                       He has designed the main page of <b style="font-weight: bold;"><a href="https://www.nasa.gov/stem/epscor/home/index.html">NASA's Established Program to Stimulate Competitive Research</a></b>. Mateo has worked in marine conservation research with the Hatfield Marine Science Center as well as renewable energy research at Arizona State University.
                       He is passionate about finding ways to combat climate change using computer science and physics. 

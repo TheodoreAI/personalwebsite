@@ -46,35 +46,42 @@ app.use(flash());
  */
 app.get('/', (req, res) => {
     
-    // logStatus = [];
-    // if(req.isAuthenticated){
-    //     logStatus.push("logout");
-    //     res.render('index', {logStatus});
-    // }else if (req.checkNotAuthenticated){
-    //     logStatus.push("login");
-    //     res.render('index', {logStatus});
-    // }else{
-    //     res.render('index');
-    // }
-    res.render('index');
-    
+    pool.query('SELECT * FROM about', (err, results)=>{
+        if(err){
+            throw err;
+        }
+        rows = results["rows"][0];
+        console.log("Checking if logged in:", req.isAuthenticated());
+        const loggedIn = req.isAuthenticated();
+        res.render("index", {rows, loggedIn});
+    })
 });
 
-app.get('/admin/register', checkAuthenticated, (req, res) =>{
+app.get('/register', checkAuthenticated, (req, res) =>{
     res.render("register");
 })
-app.get('/admin/login', checkAuthenticated, (req, res) =>{
+app.get('/login', checkAuthenticated, (req, res) =>{
     res.render("login");
 });
 
-app.get('/admin/dashboard', checkNotAuthenticated, (req, res) =>{
-    res.render("dashboard", {user: req.user.name});
+
+app.get('/dashboard', checkNotAuthenticated, (req, res) =>{
+    pool.query('SELECT * FROM about', (err, results)=>{
+        if(err){
+            throw err;
+        }
+        rows = results["rows"][0];
+        res.render("dashboard", {rows});
+    })
 });
 
-app.get("/admin/logout", (req, res) => {
+
+
+
+app.get("/logout", (req, res) => {
     req.logOut();
     req.flash("success_msg", "You have logged out successfully!");
-    res.redirect('/admin/login');
+    res.redirect('/login');
 });
 
 
@@ -84,9 +91,9 @@ app.get("/admin/logout", (req, res) => {
  * POST requests from the front-end to the backend and the database
  */
 
- app.post('/admin/register', async(req, res) =>{
+ app.post('/register', async(req, res) =>{
      let {name, email, password, password2} = req.body;
-     console.log({name, email});
+    
     //  Form validation errors:
     let errors = [];
     if (!name || !email || !password || !password2){
@@ -120,47 +127,76 @@ app.get("/admin/logout", (req, res) => {
                         throw err;
                     }
                     req.flash("success_msg", "You are now registered. Please Log in");
-                    res.redirect("/admin/login");
+                    res.redirect("/login");
                 })
             }
         })
     }
  });
 
-app.post("/admin/login", passport.authenticate('local', 
-{successRedirect: '/admin/dashboard', 
-failureRedirect: '/admin/login',
+app.post("/login", passport.authenticate('local', 
+{successRedirect: '/dashboard', 
+failureRedirect: '/login',
 failureFlash: true}),
 );
 
-app.post("/admin/about", (req, res)=>{
-    let {title, name, descript} = req.body;
 
+// Add about info
+app.post("/dashboard", (req, res)=>{
+    let {name, descript} = req.body;
     //form validation errors list
     let errors = [];
-    if (!title || !name || !descript){
+    if (!name || !descript){
         errors.push({message:"Please enter all fields"});
     }
     if(errors.length > 0){
         res.render('dashboard', {errors});
+
     }else{
-  
-        pool.query(`INSERT INTO about (title, name, descript)
-        VALUES($1, $2, $3)`, [title, name, descript], (err, results)=>{
+        pool.query(`INSERT INTO about (name, descript)
+        VALUES($1, $2)`, [name, descript], (err, results)=>{
             if (err){
                 throw err;
             }
             req.flash('success_msg', 'You have successfully added a new about section');
-            res.render("dashboard", {success});
+            res.render("dashboard");
         })
     }
 })
 
+// Update about info
+app.post('/dashboard/update', (req, res)=>{
+    let {id, name, descript} = req.body;
+    //form validation errors list
+    let errors = [];
+    if (!name || !descript){
+        errors.push({message:"Please enter all fields"});
+    }
+    if(errors.length > 0){
+        res.render('dashboard', {errors});
 
+    }else{
+        console.log(name, descript, id);
+        pool.query(
+            `UPDATE 
+                about 
+            SET
+                name = $2,
+                descript = $3
+            WHERE 
+                id = $1`, [id, name, descript], (err, results)=>{
+            if (err){
+                throw err;
+            }
+            req.flash('success_msg', 'You have successfully Updated About section');
+            res.redirect("/dashboard");
+        })
+    }
+})
 
 function checkAuthenticated(req, res, next){
     if (req.isAuthenticated()){
-        return res.redirect('/admin/dashboard');
+        return res.redirect('/dashboard');
     }
     next();
 }
@@ -169,7 +205,7 @@ function checkNotAuthenticated(req, res, next){
     if (req.isAuthenticated()){
         return next();
     }
-    res.redirect('/admin/login');
+    res.redirect('/login');
 }
 
 /**
