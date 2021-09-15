@@ -176,7 +176,8 @@ app.post('/dashboard/update', (req, res)=>{
         errors.push({message:"Please enter all fields"});
     }
     if(errors.length > 0){
-        res.render('dashboard', {errors});
+        req.flash("errors", "Please enter all fields")
+        res.redirect('/dashboard');
 
     }else{
         pool.query(

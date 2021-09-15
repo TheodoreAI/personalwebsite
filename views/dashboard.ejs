@@ -10,16 +10,11 @@
 
     <div class="retro-login">
         <ul style="list-style-type: none;">
-            <% if(typeof errors != 'undefined'){%>
-                <% errors.forEach(error =>{ %>
-                    <li ><%= error.message%></li>
-                <% }) %>
-        <% } %>
-        </ul>
-    
-        <ul style="list-style-type: none;">
             <% if (messages.success_msg) {%>
                 <li><%=messages.success_msg %> </li>
+            <%}%>
+            <% if (messages.errors) {%>
+                <li style="font-size: larger; font-style: bold;"><%=messages.errors %> </li>
             <%}%>
         </ul>
         <ul style="list-style-type: none;">
@@ -54,7 +49,7 @@
                 <textarea rows="30" cols="50" type="text" id="descript" name="descript" placeholder="Description" ><%=rows.descript%></textarea>
             </div>
             <div>
-                <input type="submit" value="Add">
+                <input type="submit" value="Update">
             </div>
         </form>
 
