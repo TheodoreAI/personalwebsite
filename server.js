@@ -11,6 +11,7 @@ const flash = require('express-flash');
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const passport = require("passport");
+var helmet = require("helmet");
 
 const initializePassport = require("./passportConfig");
 initializePassport(passport);
@@ -41,6 +42,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+// app.use(helmet());
+// app.disable('x-powered-by');
+
 /**
  * GET Routes Definitions
  */
@@ -51,7 +55,6 @@ app.get('/', (req, res) => {
             throw err;
         }
         rows = results["rows"][0];
-        console.log("Checking if logged in:", req.isAuthenticated());
         const loggedIn = req.isAuthenticated();
         res.render("index", {rows, loggedIn});
     })
@@ -176,7 +179,6 @@ app.post('/dashboard/update', (req, res)=>{
         res.render('dashboard', {errors});
 
     }else{
-        console.log(name, descript, id);
         pool.query(
             `UPDATE 
                 about 

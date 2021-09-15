@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS about;
 CREATE TABLE about
 (id BIGSERIAL PRIMARY KEY NOT NULL,
 name VARCHAR(200) NOT NULL,
-descript VARCHAR(500) NOT NULL);
+descript VARCHAR(1000) NOT NULL);
 
 -- Table for the admin
 CREATE TABLE admins
@@ -18,4 +18,7 @@ password VARCHAR(200) NOT NULL,
 aboutid INTEGER REFERENCES about(id),
 UNIQUE(email));
 
+-- insert into the tables
 
+INSERT INTO about (name, descript) VALUES('Mateo Estrada', 'Hello world');
+INSERT INTO admins (name, email, password, aboutid) VALUES('test', 'test', 'test', 8);
