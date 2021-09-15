@@ -8,7 +8,7 @@ function initialize(passport){
             if (err){
                 throw err;
             }
-            console.log("inside passportCOnfig:", results.rows);
+            
             if(results.rows.length > 0){
                 const user = results.rows[0];
                 // compare the passwords from database to the one inputted
@@ -24,7 +24,7 @@ function initialize(passport){
                     }
                 })
             }else{
-                return done(null, false, {message: "Emai; is not registered!"});
+                return done(null, false, {message: "Email is not registered!"});
             }
 
         })

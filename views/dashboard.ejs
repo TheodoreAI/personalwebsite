@@ -7,39 +7,59 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <ul style="list-style-type: none;">
-        <% if(typeof errors != 'undefined'){%>
-            <% errors.forEach(error =>{ %>
-                <li ><%= error.message%></li>
-            <% }) %>
-    <% } %>
-    </ul>
 
-    <ul style="list-style-type: none;">
-        <% if (messages.success_msg) {%>
-            <li><%=messages.success_msg %> </li>
-        <%}%>
-    </ul>
-    <ul style="list-style-type: none;">
-        <button><a href="/">Home</a></button>
-        <button><a href="/admin/logout">Logout</a></button>
-    </ul>
+    <div class="retro-login">
+        <ul style="list-style-type: none;">
+            <% if(typeof errors != 'undefined'){%>
+                <% errors.forEach(error =>{ %>
+                    <li ><%= error.message%></li>
+                <% }) %>
+        <% } %>
+        </ul>
     
-    <h1>Welcome  </h1>
-    <h3>About:</h3>
-    <form action="/admin/about" method='POST'>
-        <div>
-            <input type="text" id="title" name="title" placeholder="Title" required>
-        </div>
-        <div>
-            <input type="text" id="name" name="name" placeholder="Name" required>
-        </div>
-        <div>
-            <input type="text" id="descript" name="descript" placeholder="Description" required>
-        </div>
-        <div>
-            <input type="submit" value="Add">
-        </div>
-    </form>
+        <ul style="list-style-type: none;">
+            <% if (messages.success_msg) {%>
+                <li><%=messages.success_msg %> </li>
+            <%}%>
+        </ul>
+        <ul style="list-style-type: none;">
+            <button><a href="/">Home</a></button>
+            <button><a href="/logout">Logout</a></button>
+        </ul>
+        
+        <h1>Welcome  </h1>
+        <img style="border-radius: 90%; position: relative;" src="https://cornellsun.com/wp-content/uploads/2018/04/p8-arts-player-one-color.png">
+        <h3>Add About:</h3>
+        <form action="/dashboard" method='POST'>
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Name"required>
+                </div>
+                <div>
+                    <textarea rows="30" cols="50" type="text" id="descript" name="descript" placeholder="Description" required></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Add">
+                </div>
+        </form>
+        <h3>Update About:</h3>
+        <!-- Update the forms -->
+        <form action="/dashboard/update" method='POST'>
+            <div>
+                <input type="text" id="id" name="id" placeholder="id" value="<%=rows.id%>" >
+            </div>
+            <div>
+                <input type="text" id="name" name="name" placeholder="Name" value="<%=rows.name%>" >
+            </div>
+            <div>
+                <textarea rows="30" cols="50" type="text" id="descript" name="descript" placeholder="Description" ><%=rows.descript%></textarea>
+            </div>
+            <div>
+                <input type="submit" value="Add">
+            </div>
+        </form>
+
+    </div>
+    <link href="css/style.css" rel="stylesheet">
+    
 </body>
 </html>
