@@ -1,4 +1,5 @@
-# personalwebsite
+# Personal Website
+# Nov 2, 2021
 
 This runs in cloud platform Heroku at: http//:mateoestrada.org
 
@@ -8,9 +9,22 @@ This runs in cloud platform Heroku at: http//:mateoestrada.org
 - ncu -u
 - npm install
 
+
+
+## 1.
+
 - Updates:
     + adding a user authentication interface 
         - DONE
     + adding an S3 connection to store files and access them.
     + dynamically update the front-end interface via the admin dashboard. 
         - I can dynamically add things
+
+## 2. Adding the database
+
+    Connect Database: https://www.postgresqltutorial.com/postgresql-show-tables/
+    - psql -U postgres -W
+    - \c devfoliodb
+
+    Restart the database:
+    - psql -h localhost -d devfoliodb -U mateoestrada -f filename.sql

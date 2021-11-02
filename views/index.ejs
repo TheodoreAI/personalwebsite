@@ -132,7 +132,16 @@
                     <p class="lead">
                       <%=rows.descript%>
                     </p>
-                   
+                    <% if (loggedIn) {%>
+                    <div class="title-box-2">
+                      <h6 class="title-left">
+                        Times visited:
+                      </h6>
+                    </div>
+                    <p class="lead">
+                      <%=rows.visits%>
+                    </p>
+                    <% } %>
                   </div>
                 </div>
               </div>
@@ -149,8 +158,6 @@
             <p>C</p>
             <p>Python</p>
             <p>JavaScript</p>
-            
-
         </div>
         <div class="col">
           <h5>Front-End:</h5>

@@ -55,7 +55,13 @@ app.get('/', (req, res) => {
             throw err;
         }
         rows = results["rows"][0];
+        rows.visits++;
         const loggedIn = req.isAuthenticated();
+        pool.query(`UPDATE about 
+                    SET
+                        visits = $1
+                    WHERE 
+                        id = 1`, [rows.visits]);
         res.render("index", {rows, loggedIn});
     })
 });
@@ -169,10 +175,11 @@ app.post("/dashboard", (req, res)=>{
 
 // Update about info
 app.post('/dashboard/update', (req, res)=>{
-    let {id, name, descript} = req.body;
+    let {id, name, visits, descript} = req.body;
     //form validation errors list
+    console.log(name);
     let errors = [];
-    if (!name || !descript){
+    if (!name || !descript || !visits){
         errors.push({message:"Please enter all fields"});
     }
     if(errors.length > 0){
@@ -185,9 +192,10 @@ app.post('/dashboard/update', (req, res)=>{
                 about 
             SET
                 name = $2,
-                descript = $3
+                visits = $3,
+                descript = $4
             WHERE 
-                id = $1`, [id, name, descript], (err, results)=>{
+                id = $1`, [id, name, visits, descript], (err, results)=>{
             if (err){
                 throw err;
             }
