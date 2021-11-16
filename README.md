@@ -18,7 +18,7 @@ This runs in cloud platform Heroku at: http//:mateoestrada.org
         - DONE
     + adding an S3 connection to store files and access them.
     + dynamically update the front-end interface via the admin dashboard. 
-        - I can dynamically add things
+        - I can dynamically add things to my profile section
 
 ## 2. Adding the database
 
@@ -28,3 +28,7 @@ This runs in cloud platform Heroku at: http//:mateoestrada.org
 
     Restart the database:
     - psql -h localhost -d devfoliodb -U mateoestrada -f filename.sql
+
+## 3. TO DO:
+    - WORKING ON THE IP ADDRESS AND LOCATION data section
+    - REMEMBER TO UNCOMMENT IN THE dbconfig.js before deploying to production

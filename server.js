@@ -12,7 +12,8 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 const passport = require("passport");
 var helmet = require("helmet");
-
+const {lookup} = require("geoip-lite");
+var getIP = require("./assets/js/data");
 const initializePassport = require("./passportConfig");
 initializePassport(passport);
 /**
@@ -49,7 +50,8 @@ app.use(flash());
  * GET Routes Definitions
  */
 app.get('/', (req, res) => {
-    
+    // console.log("The IP address:", getIP(req));
+    // console.log(lookup((req.ip)));
     pool.query('SELECT * FROM about', (err, results)=>{
         if(err){
             throw err;
