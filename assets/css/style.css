@@ -761,7 +761,7 @@ a:hover {
     padding: 2.5rem 1.3rem;
     border-radius: 1rem;
     margin-bottom: 3rem;
-    height: 350px;
+    height: fit-content;
 }
 
 .service-box:hover .ico-circle {
@@ -774,11 +774,13 @@ a:hover {
 .service-box .service-ico {
     margin-bottom: 1rem;
     color: #1e1e1e;
+    text-align: center;
 }
 
 .service-box .ico-circle {
     transition: all 500ms ease;
     font-size: 4rem;
+    text-align: center;
 }
 
 .service-box .s-title {
@@ -830,7 +832,7 @@ a:hover {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background-color: #fff;
-    height: 320px;
+    height: fit-content;
     border-radius: 10px;
 }
 
