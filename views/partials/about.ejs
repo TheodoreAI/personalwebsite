@@ -1,0 +1,83 @@
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about-mf sect-pt4 route">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-5">
+                        <div class="about-info">
+                          <p><span class="title-s"></span> <span>Programmer Analyst</span></p>
+                          <p><span class="title-s"></span> <span><%=rows.name%></span></p>
+                        </div>
+                        <div >
+                          <img src="img/casualshot.jp2" id="about-img" alt="">
+                        </div>
+                      </div>
+                    </div>
+            
+                  </div>
+                  <div class="col-md-6">
+                    <div class="about-me pt-4 pt-md-0">
+                      <div class="title-box-2">
+                        <h5 class="title-left">
+                          About me
+                        </h5>
+                      </div>
+                      <p class="lead">
+                        <%=rows.descript%>
+                      </p>
+                      <% if (loggedIn) {%>
+                      <div class="title-box-2">
+                        <h6 class="title-left">
+                          Times visited:
+                        </h6>
+                      </div>
+                      <p class="lead">
+                        <%=rows.visits%>
+                      </p>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-shadow-full" style="text-align: center">
+          <h3 class="title-a">Skills stack:</h3><br>
+          <div class="row">
+          <div class="col">
+            <h5>Back-End:</h5>
+              <p>C++</p>
+              <p>C</p>
+              <p>Python</p>
+              <p>JavaScript</p>
+          </div>
+          <div class="col">
+            <h5>Front-End:</h5>
+              <p>HTML5</p>
+              <p>CSS3</p>
+              <p>VueJS</p>
+              <p>React</p>    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h5>Database:</h5>
+              <p>MySQL</p>
+              <p>MariaDB</p>
+              <p>PostgreSQL</p>
+          </div>
+          <div class="col">
+            <h5>Frameworks:</h5>
+              <p>Django</p>
+              <p>Flask</p>
+              <p>ExpressJS</p>
+              <p>Bootstrap</p>
+          </div>
+        </div>
+        </div>
+      </section><!-- End About Section -->

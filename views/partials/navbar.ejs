@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+       <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/previous_work_section.css" rel="stylesheet">
+
+  </head>
+
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll" href="#page-top">Welcome</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll <%= active.home %>" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll <%=active.services %>" href="/services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll <%= active.portfolio %>" href="/portfolio">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll <%= active.research %>" href="/research">Research</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll <%= active.contact %>" href="/contact">Contact</a>
+          </li>
+          <% if (!loggedIn) { %>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href='/login'>Login</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href='/logout'>Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href='/dashboard'>Dashboard</a>
+            </li>
+          <%}%>
+
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</html>

@@ -1,34 +1,29 @@
-// server.js
 
 /**
- * Required External Modules
+ * External Modules
  */
-
 const express = require('express');
+var router = express.Router();
 const path = require('path');
-const {pool} = require("./dbconfig");
+const {pool} = require("./src/database/dbconfig");
 const flash = require('express-flash');
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const passport = require("passport");
-var helmet = require("helmet");
-const {lookup} = require("geoip-lite");
-var getIP = require("./assets/js/data");
-const initializePassport = require("./passportConfig");
+const initializePassport = require("./src/database/passportConfig");
 initializePassport(passport);
+
 /**
  * App Variables
  */
-
  const app = express();
- const port = process.env.PORT || '8000';
-
-
+ const port = process.env.PORT || '3000';
 
 /**
  *  App Configuration
  */
 app.use(express.static(path.join(__dirname, "assets")));
+app.set('views', path.join(__dirname, 'views/'));
 app.set('view engine', 'ejs');
 
 /**
@@ -43,15 +38,29 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-// app.use(helmet());
-// app.disable('x-powered-by');
+
+
+// Middleware for the routes
+router.use(function timeLog (req, res, next) {
+    next()
+})
+
+/* src Section */
+var portfolio = require('./src/portfolio/portfolio');
+var research = require('./src/research/research');
+var services = require('./src/services/services');
+var contact = require('./src/contact/contact');
+
+/* Use Section */
+app.use('/portfolio', portfolio);
+app.use('/research', research);
+app.use('/services', services);
+app.use('/contact', contact);
 
 /**
  * GET Routes Definitions
  */
 app.get('/', (req, res) => {
-    // console.log("The IP address:", getIP(req));
-    // console.log(lookup((req.ip)));
     pool.query('SELECT * FROM about', (err, results)=>{
         if(err){
             throw err;
@@ -64,7 +73,8 @@ app.get('/', (req, res) => {
                         visits = $1
                     WHERE 
                         id = 1`, [rows.visits]);
-        res.render("index", {rows, loggedIn});
+                        const active = {home: 'active'};
+        res.render("index", {rows, loggedIn, active});
     })
 });
 
@@ -72,9 +82,10 @@ app.get('/register', checkAuthenticated, (req, res) =>{
     res.render("register");
 })
 app.get('/login', checkAuthenticated, (req, res) =>{
-    res.render("login");
+    const loggedIn = req.isAuthenticated();
+    const active = {login: 'active'};
+    res.render("login", {active, loggedIn});
 });
-
 
 app.get('/dashboard', checkNotAuthenticated, (req, res) =>{
     pool.query('SELECT * FROM about', (err, results)=>{
@@ -94,9 +105,6 @@ app.get("/logout", (req, res) => {
     req.flash("success_msg", "You have logged out successfully!");
     res.redirect('/login');
 });
-
-
-
 
 /**
  * POST requests from the front-end to the backend and the database
@@ -228,3 +236,4 @@ function checkNotAuthenticated(req, res, next){
  app.listen(port, () => {
      console.log(`Listening to requests on http://localhost:${port}`);
  });
+ module.exports = router;

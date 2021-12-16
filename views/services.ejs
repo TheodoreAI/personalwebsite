@@ -1,0 +1,83 @@
+<!<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <main id='main'>
+        <%- include('partials/intro', {page_name: "Services"}) %>
+        <%- include('partials/navbar', {active}) %>
+        
+        <!-- ======= Services Section ======= -->
+    <section id="service" class="services-mf pt-5 route">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="title-box text-center">
+                <h3 class="title-a">
+                  Services
+                </h3>
+                <p class="subtitle-a">
+                  Working with Mateo:
+                </p>
+                <div class="line-mf"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="service-box">
+                <div class="service-ico">
+                  <span class="ico-circle"><i class="ion-code-working"></i></span>
+                </div>
+                <div class="service-content">
+                  <h2 class="s-title">Front-End:</h2>
+                  <p class="s-description text-center">
+                    Combine technology and design to create inviting, easy-to-use websites for consumers and clients. 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-box">
+                <div class="service-ico">
+                  <span class="ico-circle"><i class="ion-monitor"></i></span>
+                </div>
+                <div class="service-content">
+                  <h2 class="s-title">Back-End:</h2>
+                  <p class="s-description text-center">
+                    Create components and features on the server-side, indirectly accessed by a user through a front-end application.
+                    Including: core application logic, databases, data and application integration, APIs.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-box">
+                <div class="service-ico">
+                  <span class="ico-circle"><i class="ion-stats-bars"></i></span>
+                </div>
+                <div class="service-content">
+                  <h2 class="s-title">Database Administrator:</h2>
+                  <p class="s-description text-center">
+                    Storing and organizing data as well as designing and building databases from ERD (Entity-Relationship-Diagram) to database manipulation queries.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- End Services Section -->
+      
+        <%-include('partials/footer') %>
+        
+ 
+    </main>
+    <script src="js/main.js"></script>
+   
+</html>
