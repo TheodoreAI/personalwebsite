@@ -13,7 +13,7 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <main id='main'>
-        <%- include('partials/intro', {page_name: "Login"}) %>
+        <%- include('partials/intro', {page_name: "Coming Soon"}) %>
         <!-- ======= Login Section ======= -->
         <br/>
         <div class="retro-login">
@@ -31,7 +31,6 @@
             <ul>
                 <% if (messages.error ){ %>
                     <li><%= messages.error %></li>
-    
                 <% } %>
             </ul>
             <form action="/login" method='POST'>

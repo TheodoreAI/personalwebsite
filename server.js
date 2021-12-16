@@ -159,7 +159,6 @@ failureRedirect: '/login',
 failureFlash: true}),
 );
 
-
 // Add about info
 app.post("/dashboard", (req, res)=>{
     let {name, descript} = req.body;
