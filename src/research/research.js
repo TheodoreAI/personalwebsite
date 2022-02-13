@@ -12,8 +12,7 @@ const fs = require('fs');
 router.get('/', (req, res) =>{
     const loggedIn = false;
     const active = {research: 'active'};
-    let multi = runningCode();
-    res.render("research", { loggedIn, active, multi});
+    res.render("research", { loggedIn, active});
 })
 
 module.exports = router;
