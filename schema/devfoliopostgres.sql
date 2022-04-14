@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS about;
 CREATE TABLE about
 (id BIGSERIAL PRIMARY KEY NOT NULL,
 name VARCHAR(200),
+title VARCHAR(200),
 visits INTEGER,
 descript VARCHAR(1000));
 
@@ -21,7 +22,7 @@ UNIQUE(email));
 
 -- insert into the tables
 
-INSERT INTO about (name, visits, descript) VALUES('Mateo Estrada', 0, 'Hello world');
+INSERT INTO about (name, title, visits, descript) VALUES('Mateo Estrada', 'Programmer Analyst', 0, 'Hello world');
 -- INSERT INTO admins (name, email, password, aboutid) VALUES('test', 'test', 'test', 1);
 
 -- Descritpion: at Oregon State University. He has designed, programmed, and build software systems using 
