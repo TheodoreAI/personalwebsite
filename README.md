@@ -30,5 +30,6 @@ This runs in cloud platform Heroku at: http//:mateoestrada.org
     - psql -h localhost -d devfoliodb -U mateoestrada -f filename.sql
 
 ## 3. TO DO:
+    - Need to fix bug with title in the database server.js
     - WORKING ON THE IP ADDRESS AND LOCATION data section
     - REMEMBER TO UNCOMMENT IN THE dbconfig.js before deploying to production
