@@ -13,9 +13,9 @@ const pool = new Pool({
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,
     // For local development comment this out; for production uncomment it
-    // ssl: {
-    //     rejectUnauthorized: false
-    // }
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 console.log(pool);
 module.exports = {
